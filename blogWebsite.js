@@ -1,12 +1,24 @@
+const allPostsBlock = document.querySelectorAll('.allPostsBlock')
+
+const postBlock = document.getElementById('postBlock')
+// const postTimestamp = document.getElementById('postTimestamp')
+// const username = document.getElementById('username')
+// const postTitle = document.getElementById('postTitle')
+// const postImg = document.getElementById('postImg')
+// const postDescription = document.getElementById('postDescription')
+
+
 let userData = {
     name: 'Labas',
     passwordOne: 'krabas',
     passwordTwo: 'krabas',
 
 }
+let allPostsArray = []
 let loginKey = ''
 setTimeout(() => {
     console.log(loginKey)
+    console.log(allPostsArray)
 }, 1000)
 
 
@@ -14,7 +26,6 @@ setTimeout(() => {
 // localStorage.getItem("pavadinimas")
 // j0g vertė turi būt stringo fomrato, tai turi jus JSON.strigify paverst i stringą,
 // o kai pasiemi atgal sukonvertuot su JSON.parse()
-
 // localStorage
 
 // GET all posts
@@ -22,10 +33,57 @@ setTimeout(() => {
 function getAllPosts() {
     fetch('http://167.99.138.67:1111/getallposts')
         .then(response => response.json())
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
+        .then(data => {
+            // console.log(data)
+            allPostsArray = data.data
+            displayAllPosts()
+
+        })
 }
 
 getAllPosts()
+
+function displayAllPosts() {
+    allPostsArray.map(item => {
+
+        postBlock.setAttribute('id', item._id)
+
+        let postTimestamp = document.createElement('div')
+        // postTimestamp.classList.add('time')
+        postTimestamp.innerText = item.timestamp
+
+        let username = document.createElement('div')
+        username.innerText = item.username
+
+        let postTitle = document.createElement('div')
+        postTitle.innerText = item.title
+
+        let postImg = document.createElement('img')
+        postImg.src = item.image
+
+        let postDescription = document.createElement('div')
+        postDescription.innerText = item.description
+
+
+        let editPostBtn = document.createElement('div')
+        editPostBtn.classList.add('button')
+        editPostBtn.innerText = 'EDIT'
+        // editPostBtn.addEventListener("click", editPost)
+
+        let deletePostBtn = document.createElement('div')
+        deletePostBtn.classList.add('button')
+        deletePostBtn.innerText = 'DELETE'
+        // deletePostBtn.addEventListener("click", deletePost)
+
+
+        let allPostsElements = [postTimestamp, username, postTitle, postImg, postDescription, editPostBtn, deletePostBtn]
+        allPostsElements.map(item => {
+            postBlock.appendChild(item)
+        })
+
+    })
+}
 
 
 //POST create new user
@@ -34,6 +92,7 @@ getAllPosts()
 // name, passwordOne, passwordTwo
 //name min 5 simboliai
 //paswordai turi sutapti ir min 5 simboliai
+
 function createAccount() {
 
     fetch('http://167.99.138.67:1111/createaccount', {
@@ -73,11 +132,9 @@ function login() {
             loginKey = data.secretKey
             console.log(loginKey)
         })
-
 }
 
 login()
-
 
 
 // POST create new post (have to have secret key)
