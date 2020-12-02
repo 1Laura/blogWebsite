@@ -1,6 +1,6 @@
-const allPostsBlock = document.querySelectorAll('.allPostsBlock')
+let allPostsBlock = document.getElementById('allPostsBlock')
 
-const postBlock = document.getElementById('postBlock')
+// const postBlock = document.getElementById('postBlock')
 // const postTimestamp = document.getElementById('postTimestamp')
 // const username = document.getElementById('username')
 // const postTitle = document.getElementById('postTitle')
@@ -35,7 +35,7 @@ function getAllPosts() {
         .then(response => response.json())
         // .then(data => console.log(data))
         .then(data => {
-            // console.log(data)
+            //grizta data OBJEKTAS :)
             allPostsArray = data.data
             displayAllPosts()
 
@@ -46,41 +46,49 @@ getAllPosts()
 
 function displayAllPosts() {
     allPostsArray.map(item => {
-
-        postBlock.setAttribute('id', item._id)
+        let postBlock = document.createElement('div')
+        postBlock.classList.add('postBlock')
+        postBlock.setAttribute('id', item.id)
 
         let postTimestamp = document.createElement('div')
         // postTimestamp.classList.add('time')
         postTimestamp.innerText = item.timestamp
 
-        let username = document.createElement('div')
+        let username = document.createElement('h4')
         username.innerText = item.username
 
-        let postTitle = document.createElement('div')
+        let postTitle = document.createElement('h3')
         postTitle.innerText = item.title
+
+        let imagePost = document.createElement('div')
+        imagePost.classList.add('imagePost')
 
         let postImg = document.createElement('img')
         postImg.src = item.image
 
-        let postDescription = document.createElement('div')
+        let postDescription = document.createElement('p')
         postDescription.innerText = item.description
 
 
-        let editPostBtn = document.createElement('div')
+        let editPostBtn = document.createElement('button')
         editPostBtn.classList.add('button')
         editPostBtn.innerText = 'EDIT'
         // editPostBtn.addEventListener("click", editPost)
 
-        let deletePostBtn = document.createElement('div')
+        let deletePostBtn = document.createElement('button')
         deletePostBtn.classList.add('button')
         deletePostBtn.innerText = 'DELETE'
         // deletePostBtn.addEventListener("click", deletePost)
 
 
-        let allPostsElements = [postTimestamp, username, postTitle, postImg, postDescription, editPostBtn, deletePostBtn]
+        imagePost.appendChild(postImg)
+        let allPostsElements = [postTimestamp, username, postTitle, imagePost, postDescription, editPostBtn, deletePostBtn]
         allPostsElements.map(item => {
             postBlock.appendChild(item)
+
         })
+        console.log(postBlock)
+        allPostsBlock.appendChild(postBlock)
 
     })
 }

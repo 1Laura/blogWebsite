@@ -1,0 +1,163 @@
+@import "variables";
+@import "register";
+@import "login";
+@import 'allPosts';
+@import "singlePost";
+@import "editingPost";
+@import "userOnePost";
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+}
+
+// HEADER
+.headerHeight {
+  padding: 0 20px;
+  height: 85px;
+  align-items: center;
+  //justify-content: space-between;
+}
+
+.logoImage {
+
+
+  img {
+    height: 26px;
+  }
+
+}
+
+.headerImg {
+  //height: 460px;
+  position: relative;
+}
+
+.imgHeader1 {
+  width: 100%;
+}
+
+.imgHeader2 {
+  position: absolute;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  //width: 100%;
+  h3 {
+    text-align: center;
+    padding: 10px 0;
+    font-weight: 300;
+  }
+}
+
+.flexGrowNav {
+  flex: 4;
+}
+
+.flexGrowLogo {
+  flex: 1;
+}
+
+.flexGrowSocial {
+  flex: 2;
+  margin: 0 0 0 10px;
+
+  .fab, .fas {
+    font-size: 17px;
+    margin: 0 2px;
+  }
+
+  a {
+    color: #000000;
+  }
+}
+
+.fa-search {
+  background-color: #0c32f5;
+  color: #ffffff;
+  padding: 7px;
+  border-radius: 50%;
+}
+
+[type=search] {
+  outline: none;
+}
+
+.form-inline {
+  display: inline-block !important;
+  margin: 0 0 0 10px;
+
+  .formSearch {
+    width: 145px;
+    border-bottom: 1px solid #bfbfbf;
+    border-top: none;
+    border-right: none;
+    border-left: none;
+  }
+}
+
+.nav-item {
+  .active {
+    font-weight: 700;
+    color: #0c32f5;
+  }
+}
+
+.nav-link {
+  //letter-spacing: 2px;
+  text-transform: uppercase;
+  color: #000000;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+////iki cia navigation
+
+
+//  MAIN
+//Home page blokiukai su media
+@media (min-width: map-get($grid-breakpoints, sm)) {
+  .card-columns {
+    column-count: 1 !important;
+    padding: 2px;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, md)) {
+  .card-columns {
+    column-count: 2 !important;
+    padding: 15px;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, lg)) {
+  .card-columns {
+    column-count: 3 !important;
+    padding: 20px;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, xl)) {
+  .card-columns {
+    column-count: 4 !important;
+    //padding: 25px;
+  }
+}
+
+@media (min-width: map-get($grid-breakpoints, xxl)) {
+  .card-columns {
+    column-count: 5 !important;
+
+    padding: 25px;
+  }
+}
+
+.container-fluid {
+  padding-right: 0px !important;
+  padding-left: 0px !important;
+}
+
+.card-columns {
+  background-color: #ffffff;
+}
