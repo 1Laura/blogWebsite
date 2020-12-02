@@ -65,7 +65,7 @@ body {
 }
 
 .flexGrowNav {
-  flex: 4;
+  flex: 8;
 }
 
 .flexGrowLogo {
@@ -77,7 +77,7 @@ body {
   margin: 0 0 0 10px;
 }
 .flexGrowSocial .fab, .flexGrowSocial .fas {
-  font-size: 17px;
+  font-size: 15px;
   margin: 0 2px;
 }
 .flexGrowSocial a {
