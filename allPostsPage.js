@@ -1,6 +1,24 @@
 let allPostsBlock = document.querySelector('.allPostsBlock')
 
 
+// let object = ['Laura', 99]
+// // localStorage.setItem('person', JSON.stringify(object))
+// const raw = localStorage.getItem('person')
+// const person = JSON.parse(raw)
+// person[0] = 'krabas'
+// console.log(person)
+
+// window.addEventListener('storage', event => {
+//     console.log(event)
+// })
+
+let allPostsArray = []
+setTimeout(() => {
+    console.log(allPostsArray)
+
+}, 1000)
+
+
 // const postBlock = document.getElementById('postBlock')
 // const postTimestamp = document.getElementById('postTimestamp')
 // const username = document.getElementById('username')
@@ -20,13 +38,15 @@ function getAllPosts() {
         .then(data => {
             //grizta data OBJEKTAS :)
             allPostsArray = data.data
+            localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
             displayAllPosts()
-
         })
 }
 
 function displayAllPosts() {
     // console.log(allPostsBlock.className)
+
+
     allPostsArray.map((item, index) => {
 
         allPostsBlock.innerHTML += `
@@ -39,22 +59,23 @@ function displayAllPosts() {
                         <h5 id="postTitle" class="card-title">${item.title}</h5>
                         <h6 id="username">${item.username}</h6>
                         <p id="postDescription" class="card-text">${item.description}</p>
- <!--                     <p onclick="displayReadMore" class="readMore">READ MORE...</p>-->
-                        <p class="${index}" class="readMore" ><a href="singlePost.html">READ MORE...</a></p>
-                        <p>${indexx}</p>
-                    </div>
+ <!--                     <p onclick="displayReadMore" class="readMore">READ MORE...</p>-->                                             
+                         <p class="readMore"> <a class="${item.id}" onclick="displaySinglePost(event)" href="singlePost.html">READ MORE ...</a></p>
+                   </div>
  <!--                 <div class="card-footer">-->
-
  <!--                    <button id="deleteBtn" class="button">DELETE</button>-->
  <!--                 </div>-->
               </div>`
+        // console.log(item.id)
     });
 }
 
 // document.getElementById("myBtn").addEventListener("click", displayDate);
 
 
-function displaySinglePost() {
-    console.log('read more')
-    const singlePost = document.getElementById('readMoreSinglePost')
+function displaySinglePost(event) {
+    let onReadMore;
+    onReadMore = event.target.className;
+    localStorage.setItem('singlePostIndex', JSON.stringify(onReadMore))
+    console.log(onReadMore)
 }

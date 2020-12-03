@@ -54,9 +54,15 @@ body {
   background-color: #ffffff;
 }
 
-#readMoreSinglePost {
-  margin-right: 0;
-  margin-left: 0;
+.readMoreSinglePost {
+  margin: 50px 0;
+}
+
+.imagePoDiv {
+  max-width: 100%;
+}
+.imagePoDiv img {
+  width: 100%;
 }
 
 body {
