@@ -1,11 +1,4 @@
-let allPostsBlock = document.getElementById('allPostsBlock')
 
-// const postBlock = document.getElementById('postBlock')
-// const postTimestamp = document.getElementById('postTimestamp')
-// const username = document.getElementById('username')
-// const postTitle = document.getElementById('postTitle')
-// const postImg = document.getElementById('postImg')
-// const postDescription = document.getElementById('postDescription')
 
 
 let userData = {
@@ -14,6 +7,7 @@ let userData = {
     passwordTwo: 'krabas',
 
 }
+
 let allPostsArray = []
 let loginKey = ''
 setTimeout(() => {
@@ -30,6 +24,9 @@ setTimeout(() => {
 
 // GET all posts
 // http://167.99.138.67:1111/getallposts
+
+getAllPosts()
+
 function getAllPosts() {
     fetch('http://167.99.138.67:1111/getallposts')
         .then(response => response.json())
@@ -42,56 +39,58 @@ function getAllPosts() {
         })
 }
 
-getAllPosts()
-
-function displayAllPosts() {
-    allPostsArray.map(item => {
-        let postBlock = document.createElement('div')
-        postBlock.classList.add('postBlock')
-        postBlock.setAttribute('id', item.id)
-
-        let postTimestamp = document.createElement('div')
-        // postTimestamp.classList.add('time')
-        postTimestamp.innerText = item.timestamp
-
-        let username = document.createElement('h4')
-        username.innerText = item.username
-
-        let postTitle = document.createElement('h3')
-        postTitle.innerText = item.title
-
-        let imagePost = document.createElement('div')
-        imagePost.classList.add('imagePost')
-
-        let postImg = document.createElement('img')
-        postImg.src = item.image
-
-        let postDescription = document.createElement('p')
-        postDescription.innerText = item.description
+// console.log(window.location)
 
 
-        let editPostBtn = document.createElement('button')
-        editPostBtn.classList.add('button')
-        editPostBtn.innerText = 'EDIT'
-        // editPostBtn.addEventListener("click", editPost)
 
-        let deletePostBtn = document.createElement('button')
-        deletePostBtn.classList.add('button')
-        deletePostBtn.innerText = 'DELETE'
-        // deletePostBtn.addEventListener("click", deletePost)
-
-
-        imagePost.appendChild(postImg)
-        let allPostsElements = [postTimestamp, username, postTitle, imagePost, postDescription, editPostBtn, deletePostBtn]
-        allPostsElements.map(item => {
-            postBlock.appendChild(item)
-
-        })
-        console.log(postBlock)
-        allPostsBlock.appendChild(postBlock)
-
-    })
-}
+// function displayAllPosts() {
+//     allPostsArray.map(item => {
+//         let postBlock = document.createElement('div')
+//         postBlock.classList.add('postBlock')
+//         postBlock.setAttribute('id', item.id)
+//
+//         let postTimestamp = document.createElement('div')
+//         // postTimestamp.classList.add('time')
+//         postTimestamp.innerText = item.timestamp
+//
+//         let username = document.createElement('h4')
+//         username.innerText = item.username
+//
+//         let postTitle = document.createElement('h3')
+//         postTitle.innerText = item.title
+//
+//         let imagePost = document.createElement('div')
+//         imagePost.classList.add('imagePost')
+//
+//         let postImg = document.createElement('img')
+//         postImg.src = item.image
+//
+//         let postDescription = document.createElement('p')
+//         postDescription.innerText = item.description
+//
+//
+//         let editPostBtn = document.createElement('button')
+//         editPostBtn.classList.add('button')
+//         editPostBtn.innerText = 'EDIT'
+//         // editPostBtn.addEventListener("click", editPost)
+//
+//         let deletePostBtn = document.createElement('button')
+//         deletePostBtn.classList.add('button')
+//         deletePostBtn.innerText = 'DELETE'
+//         // deletePostBtn.addEventListener("click", deletePost)
+//
+//
+//         imagePost.appendChild(postImg)
+//         let allPostsElements = [postTimestamp, username, postTitle, imagePost, postDescription, editPostBtn, deletePostBtn]
+//         allPostsElements.map(item => {
+//             postBlock.appendChild(item)
+//
+//         })
+//         console.log(postBlock)
+//         allPostsBlock.appendChild(postBlock)
+//
+//     })
+// }
 
 
 //POST create new user
@@ -138,7 +137,6 @@ function login() {
     }).then(response => response.json())
         .then(data => {
             loginKey = data.secretKey
-            console.log(loginKey)
         })
 }
 

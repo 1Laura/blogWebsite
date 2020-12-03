@@ -1,19 +1,60 @@
-#allPostsBlock {
-  background-color: #e5e5e5;
+.allPostsBlock {
+  background-color: #ffffff;
+  //flex-wrap: wrap;
 }
+
 
 #postBlock {
-  width: 200px;
-  height: 400px;
-  border: 1px solid gray;
+  //width: 200px;
+  //height: 400px;
+  //border: 1px solid gray;
 }
 
-.postBlock {
-  width: 200px;
-  height: 200px;
+
+.postImgSize {
+  height: 150px;
+  //margin: auto;
+  img {
+    height: 100%;
+
+  }
 }
 
-.imagePost {
-  width: 100px;
-  height: 100px;
+.readMore {
+  text-align: right;
+  color: $defaultColor;
+  font-size: 12px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.card {
+  //flex-wrap: wrap;
+  margin: 10px;
+  width: 250px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+
+
+  //flex: 1 0 18% !important;
+  //margin: 10px;
+  //overflow: hidden;
+}
+
+.postDescription {
+  font-size: 15px;
+}
+
+.card-text {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.card-title {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 }

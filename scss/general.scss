@@ -74,7 +74,7 @@ body {
 }
 
 .fa-search {
-  background-color: #0c32f5;
+  background-color: $defaultColor;
   color: #ffffff;
   padding: 7px;
   border-radius: 50%;
@@ -100,7 +100,7 @@ body {
 .nav-item {
   .active {
     font-weight: 700;
-    color: #0c32f5;
+    color: $defaultColor;
   }
 }
 
