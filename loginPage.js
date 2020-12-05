@@ -6,15 +6,12 @@
 // console.log(allPosts)
 
 let loginKey = ''
-
 let loginData = {
     name: '',
     password: '',
 }
-
 let userName = document.getElementById('userName')
 let userPassword = document.getElementById('userPassword')
-
 const userLoginBtn = document.getElementById('userLoginBtn')
 userLoginBtn.addEventListener('click', checkLoginForm)
 
@@ -37,6 +34,7 @@ function login() {
         .then(data => {
             loginKey = data.secretKey
             console.log(loginKey)
+            localStorage.setItem('secretKey', JSON.stringify(loginKey))
         })
 
     console.log("jus esate prisilogines")

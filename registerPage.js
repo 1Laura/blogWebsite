@@ -4,10 +4,8 @@
 // const allPosts = JSON.parse(posts)
 // console.log(allPosts)
 
-let inputName1 = document.getElementById('inputName1')
-let inputPassword1 = document.getElementById('inputPassword1')
-let inputPassword2 = document.getElementById('inputPassword2')
-const submitRegister = document.getElementById('submitRegister')
+
+
 const registerBlock = document.querySelector('.registerBlock')
 
 submitRegister.addEventListener('click', checkRegisterForm)

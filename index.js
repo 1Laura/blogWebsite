@@ -1,10 +1,12 @@
-
+const secret = localStorage.getItem('secretKey')
+const secretKey = JSON.parse(secret)
 
 let allPostsArray = []
 
 setTimeout(() => {
-    // console.log(loginKey)
+    console.log(secretKey)
     console.log(allPostsArray)
+
 }, 1000)
 
 
@@ -63,10 +65,6 @@ function displaySinglePost(event) {
 //         deletePostBtn.classList.add('button')
 //         deletePostBtn.innerText = 'DELETE'
 //         // deletePostBtn.addEventListener("click", deletePost)
-
-
-
-
 
 
 // POST delete existing post (have to have secret key)
