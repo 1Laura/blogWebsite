@@ -5,7 +5,6 @@
 // console.log(allPosts)
 
 
-
 const registerBlock = document.querySelector('.registerBlock')
 
 submitRegister.addEventListener('click', checkRegisterForm)
@@ -82,4 +81,5 @@ function checkRegisterForm(event) {
     }
     console.log(userData)
     registerNewAccount()
+    location.replace('index.html');
 }

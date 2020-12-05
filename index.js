@@ -1,12 +1,9 @@
-const secret = localStorage.getItem('secretKey')
-const secretKey = JSON.parse(secret)
-
 let allPostsArray = []
 const logout = document.getElementById('logout')
 logout.addEventListener('click', logoutUser)
 
 setTimeout(() => {
-    console.log(secretKey)
+    // console.log(secretKey)
     console.log(allPostsArray)
 
 }, 1000)
@@ -16,7 +13,8 @@ function logoutUser(event) {
 
     window.localStorage.clear();
     window.location.reload(true);
-    window.location.replace('~/');
+
+    location.replace('index.html');
 
 }
 
@@ -41,6 +39,7 @@ function getAllPosts() {
 const allPostBlock = document.querySelector('.allPostBlock')
 
 function displayAllPosts() {
+    allPostBlock.innerHTML = ''
     allPostsArray.map((item, index) => {
         allPostBlock.innerHTML += `
                   <div id="${item.id}" class="card">
@@ -64,40 +63,6 @@ function displaySinglePost(event) {
     localStorage.setItem('singlePostIndex', JSON.stringify(onReadMore))
     console.log(onReadMore)
 }
-
-//
-//         let editPostBtn = document.createElement('button')
-//         editPostBtn.classList.add('button')
-//         editPostBtn.innerText = 'EDIT'
-//         // editPostBtn.addEventListener("click", editPost)
-//
-//         let deletePostBtn = document.createElement('button')
-//         deletePostBtn.classList.add('button')
-//         deletePostBtn.innerText = 'DELETE'
-//         // deletePostBtn.addEventListener("click", deletePost)
-
-
-// POST delete existing post (have to have secret key)
-// http://167.99.138.67:1111/deletepost
-// send JSON object with these keys:
-// secretKey, id (id stands for post id)
-// function deletePost() {
-//     let deletePostData = {
-//         secretKey: 'as',
-//         id: ''
-//     }
-//     fetch('http://167.99.138.67:1111/deletepost', {
-//         method: 'POST',
-//         mode: 'cors',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(deletePostData)
-//     }).then(response => response.json())
-//         .then(data => console.log(data))
-// }
-// deletePost()
-
 
 //GET particular user posts
 // http://167.99.138.67:1111/getuserposts/:name

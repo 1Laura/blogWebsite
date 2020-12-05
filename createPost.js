@@ -56,5 +56,6 @@ function makeNewPost(event) {
 
     console.log(title, image, desc, secretKey)
     sendPost()
+    location.replace('index.html');
 }
 
