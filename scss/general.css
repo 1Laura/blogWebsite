@@ -170,6 +170,10 @@ body {
   font-weight: 600;
 }
 
+#logout {
+  cursor: pointer;
+}
+
 @media (min-width: 576px) {
   .card-columns {
     column-count: 1 !important;

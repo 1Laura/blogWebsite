@@ -45,7 +45,12 @@ function makeNewPost(event) {
     let desc = event.path[2].children[2].children[1].value
 
     createPostData.secretKey = secretKey
-    createPostData.title = title
+    if (title.length >= 20) {
+        createPostData.title = title
+    } else {
+        alert('title must be at least 20 symbols length')
+    }
+
     createPostData.image = image
     createPostData.description = desc
 

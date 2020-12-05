@@ -2,12 +2,23 @@ const secret = localStorage.getItem('secretKey')
 const secretKey = JSON.parse(secret)
 
 let allPostsArray = []
+const logout = document.getElementById('logout')
+logout.addEventListener('click', logoutUser)
 
 setTimeout(() => {
     console.log(secretKey)
     console.log(allPostsArray)
 
 }, 1000)
+
+function logoutUser(event) {
+    console.log(event)
+
+    window.localStorage.clear();
+    window.location.reload(true);
+    window.location.replace('~/');
+
+}
 
 
 // GET all posts
@@ -53,7 +64,6 @@ function displaySinglePost(event) {
     localStorage.setItem('singlePostIndex', JSON.stringify(onReadMore))
     console.log(onReadMore)
 }
-
 
 //
 //         let editPostBtn = document.createElement('button')
