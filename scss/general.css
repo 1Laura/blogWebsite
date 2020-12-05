@@ -1,57 +1,53 @@
 body {
   background-color: #ffc7e9;
+  font-family: "Poppins", sans-serif !important;
+}
+
+.registerBlock {
+  margin: 30px 0;
+  width: 400px;
+}
+.registerBlock h2 {
+  text-align: center;
+}
+
+.submitBtn {
+  background-color: #8e8b8b;
+  border: none;
+  color: white;
+  padding: 9px 35px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-weight: 500;
+  font-size: 17px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.submitBtn:hover {
+  background-color: #7c7c7c;
+  transform: scale(1.05);
+  transition: 150ms;
+}
+
+.inputReg {
+  margin: 15px 0;
+}
+.inputReg label {
+  margin: 0;
 }
 
 body {
   background-color: #93afff;
-}
-
-.allPostsBlock {
-  background-color: #ffffff;
-}
-
-.postImgSize {
-  height: 150px;
-}
-.postImgSize img {
-  height: 100%;
-}
-
-.readMore {
-  text-align: right;
-  color: #0c32f5;
-  font-size: 12px;
-  margin: 0;
-  font-weight: 700;
-}
-
-.card {
-  margin: 10px;
-  width: 250px;
-  display: flex;
-  justify-content: center;
-  overflow: hidden;
-}
-
-.postDescription {
-  font-size: 15px;
-}
-
-.card-text {
-  overflow: hidden;
-  display: -webkit-box;
-  -webkit-line-clamp: 3;
-  -webkit-box-orient: vertical;
-}
-
-.card-title {
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
+  font-family: "Poppins", sans-serif !important;
 }
 
 body {
   background-color: #ffffff;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .readMoreSinglePost {
@@ -66,7 +62,19 @@ body {
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Poppins", sans-serif !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
+}
+
+body {
+  font-family: "Poppins", sans-serif !important;
 }
 
 .headerHeight {
@@ -100,7 +108,7 @@ body {
 }
 
 .flexGrowNav {
-  flex: 8;
+  flex: 7;
 }
 
 .flexGrowLogo {
@@ -190,6 +198,31 @@ body {
 
 .card-columns {
   background-color: #ffffff;
+}
+
+.descriptionHo {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.titleHo {
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.readMore {
+  text-align: right;
+  color: #0c32f5;
+  font-size: 12px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.descriptionHo {
+  font-size: 15px;
 }
 
 /*# sourceMappingURL=general.css.map */

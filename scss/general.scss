@@ -1,14 +1,14 @@
 @import "variables";
 @import "register";
 @import "login";
-@import 'allPosts';
 @import "singlePost";
 @import "editingPost";
 @import "userOnePost";
+@import "createPost";
 
 
 body {
-  font-family: 'Poppins', sans-serif;
+  font-family: $fontPoppins;
 }
 
 // HEADER
@@ -52,7 +52,7 @@ body {
 }
 
 .flexGrowNav {
-  flex: 8;
+  flex: 7;
 }
 
 .flexGrowLogo {
@@ -161,3 +161,31 @@ body {
 .card-columns {
   background-color: #ffffff;
 }
+
+.descriptionHo {
+  //sutrumpina ir prideda ...
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3; //eiluciu skaicius
+  -webkit-box-orient: vertical;
+}
+
+.titleHo {
+  //sutrumpina iki vienos eilutes su ...
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap
+}
+
+.readMore {
+  text-align: right;
+  color: $defaultColor;
+  font-size: 12px;
+  margin: 0;
+  font-weight: 700;
+}
+
+.descriptionHo {
+  font-size: 15px;
+}
+

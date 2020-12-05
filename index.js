@@ -1,30 +1,15 @@
 
 
-
-let userData = {
-    name: 'Labas',
-    passwordOne: 'krabas',
-    passwordTwo: 'krabas',
-
-}
-
 let allPostsArray = []
-let loginKey = ''
+
 setTimeout(() => {
-    console.log(loginKey)
+    // console.log(loginKey)
     console.log(allPostsArray)
 }, 1000)
 
 
-// localstorage.setItem("pavadinimas", "vertė"),
-// localStorage.getItem("pavadinimas")
-// j0g vertė turi būt stringo fomrato, tai turi jus JSON.strigify paverst i stringą,
-// o kai pasiemi atgal sukonvertuot su JSON.parse()
-// localStorage
-
 // GET all posts
 // http://167.99.138.67:1111/getallposts
-
 getAllPosts()
 
 function getAllPosts() {
@@ -34,40 +19,40 @@ function getAllPosts() {
         .then(data => {
             //grizta data OBJEKTAS :)
             allPostsArray = data.data
+            localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
             displayAllPosts()
-
         })
 }
 
 // console.log(window.location)
+const allPostBlock = document.querySelector('.allPostBlock')
+
+function displayAllPosts() {
+    allPostsArray.map((item, index) => {
+        allPostBlock.innerHTML += `
+                  <div id="${item.id}" class="card">
+                        <img src="${item.image}" class="card-img-top imgHo"
+                             alt="">
+                        <div class="card-body">
+                            <h5 class="card-title titleHo">${item.title}</h5>
+                            <h6 class="timeStampHo">${item.timestamp}</h6>
+                            <p class="card-text descriptionHo">${item.description}</p>
+                            <p class="usernameHo">${item.username}</p>
+                            <p class="readMore"> <a class="${item.id}" onclick="displaySinglePost(event)" href="singlePost.html">READ MORE ...</a></p>
+                        </div>
+                  </div>             
+        `
+    })
+}
+
+function displaySinglePost(event) {
+    let onReadMore;
+    onReadMore = event.target.className;
+    localStorage.setItem('singlePostIndex', JSON.stringify(onReadMore))
+    console.log(onReadMore)
+}
 
 
-
-// function displayAllPosts() {
-//     allPostsArray.map(item => {
-//         let postBlock = document.createElement('div')
-//         postBlock.classList.add('postBlock')
-//         postBlock.setAttribute('id', item.id)
-//
-//         let postTimestamp = document.createElement('div')
-//         // postTimestamp.classList.add('time')
-//         postTimestamp.innerText = item.timestamp
-//
-//         let username = document.createElement('h4')
-//         username.innerText = item.username
-//
-//         let postTitle = document.createElement('h3')
-//         postTitle.innerText = item.title
-//
-//         let imagePost = document.createElement('div')
-//         imagePost.classList.add('imagePost')
-//
-//         let postImg = document.createElement('img')
-//         postImg.src = item.image
-//
-//         let postDescription = document.createElement('p')
-//         postDescription.innerText = item.description
-//
 //
 //         let editPostBtn = document.createElement('button')
 //         editPostBtn.classList.add('button')
@@ -78,118 +63,10 @@ function getAllPosts() {
 //         deletePostBtn.classList.add('button')
 //         deletePostBtn.innerText = 'DELETE'
 //         // deletePostBtn.addEventListener("click", deletePost)
-//
-//
-//         imagePost.appendChild(postImg)
-//         let allPostsElements = [postTimestamp, username, postTitle, imagePost, postDescription, editPostBtn, deletePostBtn]
-//         allPostsElements.map(item => {
-//             postBlock.appendChild(item)
-//
-//         })
-//         console.log(postBlock)
-//         allPostsBlock.appendChild(postBlock)
-//
-//     })
-// }
 
 
-//POST create new user
-// http://167.99.138.67:1111/createaccount
-// send JSON object with these keys:
-// name, passwordOne, passwordTwo
-//name min 5 simboliai
-//paswordai turi sutapti ir min 5 simboliai
-
-function createAccount() {
-
-    fetch('http://167.99.138.67:1111/createaccount', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(userData)
-    }).then(response => response.json())
-        .then(data => console.log(data))
-}
-
-// createAccount()
 
 
-// POST login to get your secret key
-// http://167.99.138.67:1111/login
-// send JSON object with these keys:
-// name, password
-//secretKey: "54St16hygDNxo90Lly7j"
-
-function login() {
-    let loginData = {
-        name: userData.name,
-        password: userData.passwordOne,
-    }
-    fetch('http://167.99.138.67:1111/login', {
-        method: 'POST',
-        mode: 'cors',
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify(loginData)
-    }).then(response => response.json())
-        .then(data => {
-            loginKey = data.secretKey
-        })
-}
-
-login()
-
-
-// POST create new post (have to have secret key)
-// http://167.99.138.67:1111/createpost
-// send object JSON object with these keys:
-// secretKey, title, image, description
-// function createPost() {
-//     let createPostData = {
-//         secretKey: 'as',
-//         title: 'ququ',
-//         image: '',
-//         description: ''
-//     }
-//     fetch('http://167.99.138.67:1111/createpost', {
-//         method: 'POST',
-//         mode: 'cors',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(createPostData)
-//     }).then(response => response.json())
-//         .then(data => console.log(data))
-// }
-// createPost()
-
-
-// POST update existing post (have to have secret key)
-// http://167.99.138.67:1111/updatepost
-// send JSON object with these keys:
-// secretKey, title, image, description, id (id stands for post id)
-// function updatePost() {
-//     let updatePostData = {
-//         secretKey: 'as',
-//         title: 'ququ',
-//         image: 'dfg',
-//         description: 'dfg',
-//         id: ''
-//     }
-//     fetch('http://167.99.138.67:1111/updatepost', {
-//         method: 'POST',
-//         mode: 'cors',
-//         headers: {
-//             'Content-Type': 'application/json'
-//         },
-//         body: JSON.stringify(updatePostData)
-//     }).then(response => response.json())
-//         .then(data => console.log(data))
-// }
-// updatePost()
 
 
 // POST delete existing post (have to have secret key)
