@@ -8,16 +8,14 @@
 let loginKey = ''
 
 let loginData = {
-    name: userData.name,
-    password: userData.passwordOne,
+    name: '',
+    password: '',
 }
-
 
 let userName = document.getElementById('userName')
 let userPassword = document.getElementById('userPassword')
 
 const userLoginBtn = document.getElementById('userLoginBtn')
-
 userLoginBtn.addEventListener('click', checkLoginForm)
 
 // POST login to get your secret key
@@ -44,38 +42,16 @@ function login() {
     console.log("jus esate prisilogines")
 }
 
-// window.open("index.html")
-
 function checkLoginForm(event) {
-    let inputName = event.path[2].children[1].children[1].value
-    let pass1 = event.path[2].children[2].children[1].value
-    let pass2 = event.path[2].children[3].children[1].value
+    console.log(event)
+    loginData.name = event.path[2].children[1].children[1].value
+    loginData.password = event.path[2].children[2].children[1].value
 
-    // let existUserName = allPosts.filter(item => item.username === inputName)
+    console.log(loginData)
+    console.log(loginKey)
+    login()
+    setTimeout(() => {
+        location.replace("index.html")
+    }, 6000)
 
-    // inputName.length >= 5 ? userData.name = inputName : alert('Name has to be at least 5 symbols length'), location.reload();
-    // !!pass1 === !!pass2 ? userData.passwordOne = pass1 : alert('Password should match')
-    // !!pass2 === !!pass1 ? userData.passwordTwo = pass2 : alert('Password should match')
-
-
-    if (pass1.length >= 5 && pass2.length >= 5) {
-        if (pass1 === pass2) {
-            userData.passwordOne = pass1
-            userData.passwordTwo = pass2
-        } else {
-            alert('Password should match')
-            location.reload()
-        }
-        if (inputName.length >= 5) {
-            userData.name = inputName
-        } else {
-            alert('Name has to be at least 5 symbols length')
-            location.reload()
-        }
-    } else {
-        alert('Password should be at least 5 symbols length')
-        location.reload()
-    }
-    console.log(userData)
-    registerNewAccount()
 }
