@@ -16,6 +16,7 @@ body {
   padding: 0 20px;
   height: 85px;
   align-items: center;
+  background: white;
   //justify-content: space-between;
 }
 
@@ -171,6 +172,8 @@ body {
   background-color: #ffffff;
 }
 
+
+
 .descriptionHo {
   //sutrumpina ir prideda ...
   overflow: hidden;
@@ -196,5 +199,12 @@ body {
 
 .descriptionHo {
   font-size: 15px;
+}
+.card-body{
+  h6 {
+    color: grey;
+    font-size: 14px ;
+    font-style: italic;
+  }
 }
 

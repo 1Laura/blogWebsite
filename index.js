@@ -59,30 +59,22 @@ function displayAllPosts() {
     let second
     let postDate
 
-    // var d = new Date("July 21, 1983 01:15:00");
-    // var n = d.getFullYear();
-    //
-
-
     allPostsArray.map((item, index) => {
         timeDate = new Date(item.timestamp)
         year = timeDate.getFullYear()
-        month = timeDate.getMonth()
-        day = timeDate.getDay()
+        month = timeDate.getMonth() + 1
+        day = timeDate.getDate()
         hour = timeDate.getHours()
         second = timeDate.getSeconds()
-        postDate = `Created ${year}-${month}-${day} ${hour}:${second}`
-
-
+        postDate = ` ${year}-${month}-${day} ${hour}:${second}`
         allPostBlock.innerHTML += `
                   <div id="${item.id}" class="card">
                         <img src="${item.image}" class="card-img-top imgHo"
                              alt="">
                         <div class="card-body">
                             <h5 class="card-title titleHo">${item.title}</h5>
-                            <h6 class="timeStampHo">${postDate}</h6>
+                            <h6 class="timeStampHo usernameHo">Created by ${item.username} ${postDate}</h6>
                             <p class="card-text descriptionHo">${item.description}</p>
-                            <p class="usernameHo">${item.username}</p>
                             <p class="readMore"> <a class="${item.id}" onclick="displaySinglePost(event)" href="singlePost.html">READ MORE ...</a></p>
                         </div>
                   </div>             

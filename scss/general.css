@@ -53,6 +53,10 @@ body {
 .readMoreSinglePost {
   margin: 50px 0;
 }
+.readMoreSinglePost h6 {
+  color: grey;
+  font-style: italic;
+}
 
 .imagePoDiv {
   max-width: 100%;
@@ -101,6 +105,7 @@ body {
   padding: 0 20px;
   height: 85px;
   align-items: center;
+  background: white;
 }
 
 .logoImage img {
@@ -252,6 +257,12 @@ body {
 
 .descriptionHo {
   font-size: 15px;
+}
+
+.card-body h6 {
+  color: grey;
+  font-size: 14px;
+  font-style: italic;
 }
 
 /*# sourceMappingURL=general.css.map */

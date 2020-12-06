@@ -10,7 +10,6 @@ out.classList.remove('active')
 create.classList.remove('active')
 
 
-
 // localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
 const posts = localStorage.getItem('allPosts')
 //visu postu array
@@ -54,13 +53,29 @@ deletePostBtn.addEventListener('click', checkDeletePost)
 displaySinglePost()
 
 function displaySinglePost() {
+    let timeDate
+    let year
+    let month
+    let day
+    let hour
+    let second
+    let postDate
     let oneSingleSmallPost = allPosts.filter(item => item.id === singlePostIndex)
+
     oneSingleSmallPost.map(item => {
+        timeDate = new Date(item.timestamp)
+        year = timeDate.getFullYear()
+        month = timeDate.getMonth() + 1
+        day = timeDate.getDate()
+        hour = timeDate.getHours()
+        second = timeDate.getSeconds()
+        postDate = `Created ${year}-${month}-${day}   ${hour}:${second}`
+
         imagePo.src = item.image
-        timeStampPo.innerText = item.timestamp
+        timeStampPo.innerText = postDate
         titlePo.innerText = item.title
         descriptionPo.innerText = item.description
-        usernamePo.innerText = item.username
+        usernamePo.innerText = `By ${item.username}`
         console.log(item.id)
 
     })
