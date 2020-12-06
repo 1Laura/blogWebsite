@@ -7,14 +7,14 @@ home.classList.remove('active')
 register.classList.add('active')
 login.classList.remove('active')
 out.classList.remove('active')
-create.classList.add('active')
+create.classList.remove('active')
 
 
 
 // // localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
 // const posts = localStorage.getItem('allPosts')
 // //visu postu array
-// const allPosts = JSON.parse(posts)
+// const allPosts = JSON.parse(posts)g
 // console.log(allPosts)
 
 
