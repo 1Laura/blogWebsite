@@ -1,3 +1,17 @@
+const home = document.querySelector('.home')
+const register = document.querySelector('.register')
+const loginP = document.querySelector('.login')
+const out = document.querySelector('.logout')
+const create = document.querySelector('.create')
+home.classList.remove('active')
+register.classList.remove('active')
+loginP.classList.add('active')
+out.classList.remove('active')
+create.classList.remove('active')
+
+
+
+
 // //// gaunami visi posts
 // // localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
 // const posts = localStorage.getItem('allPosts')

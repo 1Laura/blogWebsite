@@ -112,9 +112,12 @@ body {
   font-weight: 600;
 }
 
+.border {
+  border: 1px solid grey;
+  border-radius: 20px;
+}
 
-
-#logout{
+#logout {
   cursor: pointer;
 }
 

@@ -1,3 +1,16 @@
+const home = document.querySelector('.home')
+const register = document.querySelector('.register')
+const login = document.querySelector('.login')
+const out = document.querySelector('.logout')
+const create = document.querySelector('.create')
+home.classList.remove('active')
+register.classList.remove('active')
+login.classList.remove('active')
+out.classList.remove('active')
+create.classList.remove('active')
+
+
+
 // localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
 const posts = localStorage.getItem('allPosts')
 //visu postu array
@@ -16,6 +29,10 @@ const singlePost = localStorage.getItem('singlePostIndex')
 const singlePostIndex = JSON.parse(singlePost)
 //cia yra stringas
 console.log(singlePostIndex)
+
+// const home = document.querySelector('.home')
+home.classList.add('active')
+
 
 const imagePo = document.getElementById('imagePo')
 const timeStampPo = document.querySelector('.timeStampPo')

@@ -1,3 +1,16 @@
+const home = document.querySelector('.home')
+const register = document.querySelector('.register')
+const login = document.querySelector('.login')
+const out = document.querySelector('.logout')
+const create = document.querySelector('.create')
+home.classList.remove('active')
+register.classList.add('active')
+login.classList.remove('active')
+out.classList.remove('active')
+create.classList.add('active')
+
+
+
 // // localStorage.setItem('allPosts', JSON.stringify(allPostsArray))
 // const posts = localStorage.getItem('allPosts')
 // //visu postu array

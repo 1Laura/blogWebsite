@@ -1,3 +1,16 @@
+const home = document.querySelector('.home')
+const register = document.querySelector('.register')
+const login = document.querySelector('.login')
+const out = document.querySelector('.logout')
+const create = document.querySelector('.create')
+home.classList.add('active')
+register.classList.remove('active')
+login.classList.remove('active')
+out.classList.remove('active')
+create.classList.remove('active')
+
+
+
 let allPostsArray = []
 const logout = document.getElementById('logout')
 logout.addEventListener('click', logoutUser)
@@ -8,6 +21,9 @@ setTimeout(() => {
 
 }, 1000)
 
+
+
+
 function logoutUser(event) {
     console.log(event)
 
@@ -15,7 +31,6 @@ function logoutUser(event) {
     window.location.reload(true);
 
     location.replace('index.html');
-
 }
 
 
