@@ -9,8 +9,6 @@ login.classList.remove('active')
 out.classList.remove('active')
 create.classList.remove('active')
 
-
-
 let allPostsArray = []
 const logout = document.getElementById('logout')
 logout.addEventListener('click', logoutUser)
@@ -18,18 +16,14 @@ logout.addEventListener('click', logoutUser)
 setTimeout(() => {
     // console.log(secretKey)
     console.log(allPostsArray)
-
 }, 1000)
-
-
 
 
 function logoutUser(event) {
     console.log(event)
-
     window.localStorage.clear();
     window.location.reload(true);
-
+    //galetu koks modalas issokti
     location.replace('index.html');
 }
 
@@ -53,16 +47,40 @@ function getAllPosts() {
 // console.log(window.location)
 const allPostBlock = document.querySelector('.allPostBlock')
 
+
 function displayAllPosts() {
     allPostBlock.innerHTML = ''
+
+    let timeDate
+    let year
+    let month
+    let day
+    let hour
+    let second
+    let postDate
+
+    // var d = new Date("July 21, 1983 01:15:00");
+    // var n = d.getFullYear();
+    //
+
+
     allPostsArray.map((item, index) => {
+        timeDate = new Date(item.timestamp)
+        year = timeDate.getFullYear()
+        month = timeDate.getMonth()
+        day = timeDate.getDay()
+        hour = timeDate.getHours()
+        second = timeDate.getSeconds()
+        postDate = `Created ${year}-${month}-${day} ${hour}:${second}`
+
+
         allPostBlock.innerHTML += `
                   <div id="${item.id}" class="card">
                         <img src="${item.image}" class="card-img-top imgHo"
                              alt="">
                         <div class="card-body">
                             <h5 class="card-title titleHo">${item.title}</h5>
-                            <h6 class="timeStampHo">${item.timestamp}</h6>
+                            <h6 class="timeStampHo">${postDate}</h6>
                             <p class="card-text descriptionHo">${item.description}</p>
                             <p class="usernameHo">${item.username}</p>
                             <p class="readMore"> <a class="${item.id}" onclick="displaySinglePost(event)" href="singlePost.html">READ MORE ...</a></p>
@@ -71,6 +89,7 @@ function displayAllPosts() {
         `
     })
 }
+
 
 function displaySinglePost(event) {
     let onReadMore;
