@@ -68,6 +68,10 @@ body {
 #editPostBtn, #deletePostBtn {
   margin: 0 10px;
 }
+#editPostBtn a, #deletePostBtn a {
+  text-decoration: none;
+  color: white;
+}
 
 body {
   font-family: "Poppins", sans-serif !important;

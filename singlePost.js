@@ -30,6 +30,7 @@ let deletePostData = {
 
 const editPostBtn = document.getElementById('editPostBtn')
 const deletePostBtn = document.getElementById('deletePostBtn')
+
 // editPostBtn.addEventListener('click', updatePost)
 deletePostBtn.addEventListener('click', checkDeletePost)
 
@@ -47,6 +48,10 @@ function displaySinglePost() {
 
     })
 }
+
+// <p class="readMore"> <a class="${item.id}" onclick="displaySinglePost(event)"
+// href="singlePost.html">READ MORE ...</a></p>
+
 
 // POST delete existing post (have to have secret key)
 // http://167.99.138.67:1111/deletepost
@@ -74,6 +79,8 @@ function checkDeletePost(event) {
     deletePost()
     console.log(secretKey, singlePostIndex + ' sitie turejo buti istrinti')
     // let deletedPost = allPosts.filter(item => item.id == singlePostIndex)
-    location.replace('index.html');
+    setTimeout(() => {
+        location.replace("index.html")
+    }, 1000)
 }
 

@@ -48,8 +48,10 @@ function checkLoginForm(event) {
     console.log(loginData)
     console.log(loginKey)
     login()
+
+
     setTimeout(() => {
         location.replace("index.html")
-    }, 6000)
+    }, 1000)
 
 }

@@ -56,6 +56,8 @@ function makeNewPost(event) {
 
     console.log(title, image, desc, secretKey)
     sendPost()
-    location.replace('index.html');
+    setTimeout(() => {
+        location.replace("index.html")
+    }, 1000)
 }
 

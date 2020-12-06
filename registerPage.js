@@ -81,5 +81,7 @@ function checkRegisterForm(event) {
     }
     console.log(userData)
     registerNewAccount()
-    location.replace('index.html');
+    setTimeout(() => {
+        location.replace("index.html")
+    }, 1000)
 }
