@@ -91,7 +91,7 @@ function updateFields(event) {
     updatePostData.description = desc
     updatePostData.id = singlePostIndex
 
-    updatePost
+    updatePost()
     console.log(updatePostData)
     setTimeout(() => {
         location.replace("index.html")
